@@ -1,8 +1,8 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, BookOpen, ChartNoAxesCombined, CheckCircle2, Medal, Sparkles, Target, Trophy } from "lucide-react";
 import { Link } from "react-router-dom";
 import DownloadButtons from "../components/DownloadButtons.jsx";
-import VideoBanner from "../components/VideoBanner.jsx";
 
 const features = [
   { icon: BookOpen, title: "Practice with purpose", text: "Build understanding and confidence through focused practice and learning activities." },
@@ -12,8 +12,34 @@ const features = [
 ];
 
 export default function Home() {
+  const welcomeWords = ["Welcome", "to", "ChallengeHub"];
+  const [visibleWords, setVisibleWords] = useState([]);
+
+  useEffect(() => {
+    setVisibleWords([]);
+    let index = 0;
+    const timer = window.setInterval(() => {
+      index += 1;
+      setVisibleWords(welcomeWords.slice(0, index));
+      if (index >= welcomeWords.length) window.clearInterval(timer);
+    }, 650);
+    return () => window.clearInterval(timer);
+  }, []);
+
   return (
     <>
+      <section className="welcome-image-hero" aria-label="Welcome to ChallengeHub">
+        <div className="welcome-image-overlay" />
+        <div className="welcome-image-content">
+          <div className="eyebrow"><Sparkles size={15} /> A smarter way to learn</div>
+          <h1 aria-live="polite">{visibleWords.join(" ")}<span className="typing-cursor" aria-hidden="true">|</span></h1>
+          <p>ChallengeHub is a learning and competition platform designed to help you practise, test your knowledge, build confidence and track your progress. Learn at your pace, take on meaningful challenges and keep growing.</p>
+          <div className="hero-actions">
+            <a className="button" href="#download">Get the ChallengeHub App <ArrowRight size={18} /></a>
+            <Link className="text-link" to="/about">Discover ChallengeHub <ArrowRight size={17} /></Link>
+          </div>
+        </div>
+      </section>
       <section className="hero-section">
         <div className="hero-glow glow-one" /><div className="hero-glow glow-two" />
         <div className="container hero-grid">
@@ -42,7 +68,6 @@ export default function Home() {
         </div>
         <div className="container hero-bottom"><span>LEARN WITH PURPOSE</span><span className="hero-line" /><span>GROW WITH CONFIDENCE</span></div>
       </section>
-      <VideoBanner className="home-video" src="https://videos.pexels.com/video-files/5676169/5676169-hd_1080_1920_25fps.mp4" poster="https://images.pexels.com/videos/5676169/free-video-5676169.jpg?auto=compress&cs=tinysrgb&w=1600" title="Learning is better together" />
       <section className="section features-section"><div className="container"><div className="section-heading"><div className="eyebrow">THE CHALLENGEHUB EXPERIENCE</div><h2>Learning should move you <span>forward.</span></h2><p>More than just studying: build a habit of learning, testing yourself and improving every day.</p></div><div className="feature-grid">{features.map(({ icon: Icon, title, text }, index) => <motion.article className="feature-card" key={title} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * .08 }}><div className="feature-icon"><Icon size={24} /></div><span className="feature-number">0{index + 1}</span><h3>{title}</h3><p>{text}</p><span className="feature-arrow"><ArrowRight size={18} /></span></motion.article>)}</div></div></section>
       <section className="section purpose-section"><div className="container purpose-grid"><div><div className="eyebrow">BUILT AROUND YOUR POTENTIAL</div><h2>Your next level starts with <span>one challenge.</span></h2></div><div className="purpose-copy"><p>Whether you are strengthening what you know or discovering what you can do, ChallengeHub gives your learning journey a clear direction.</p><Link className="text-link" to="/about">Learn about our mission <ArrowRight size={17} /></Link></div></div></section>
       <section className="download-section" id="download"><div className="container download-panel"><div><div className="eyebrow">YOUR JOURNEY STARTS HERE</div><h2>Ready to learn, compete and grow?</h2><p>Get the ChallengeHub app and take your next step.</p></div><DownloadButtons /></div></section>
