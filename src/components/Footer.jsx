@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Linkedin, Youtube, MessageCircle, Zap } from "lucide-react";
-import DownloadButtons from "./DownloadButtons.jsx";
 import { SOCIAL_LINKS } from "../config.js";
 
 const socialItems = [
@@ -9,6 +8,12 @@ const socialItems = [
 ];
 
 export default function Footer() {
+  const goToDownload = (event) => {
+    event.preventDefault();
+    if (window.location.hash !== "#/") window.location.hash = "/";
+    window.setTimeout(() => document.getElementById("download")?.scrollIntoView({ behavior: "smooth", block: "center" }), 120);
+  };
+
   return (
     <footer className="site-footer">
       <div className="container footer-main">
@@ -25,7 +30,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-column"><h3>Explore</h3><Link to="/">Home</Link><Link to="/about">About Us</Link><Link to="/contact">Contact Us</Link></div>
-        <div className="footer-column"><h3>Get the app</h3><p>Take your learning journey with you.</p><a href="/#download">Download options <span>↗</span></a></div>
+        <div className="footer-column"><h3>Get the app</h3><p>Take your learning journey with you.</p><a href="#download" onClick={goToDownload}>Download options <span>↗</span></a></div>
       </div>
       <div className="container footer-bottom"><span>© {new Date().getFullYear()} ChallengeHub. All rights reserved.</span><span>Learn. Compete. Grow.</span></div>
     </footer>
