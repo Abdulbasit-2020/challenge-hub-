@@ -5,3 +5,61 @@
 @media(max-width:900px){.hero-grid{gap:25px}.feature-grid,.values-grid{grid-template-columns:repeat(2,1fr)}.purpose-grid,.story-grid,.contact-grid{gap:45px}.download-panel{align-items:flex-start;flex-direction:column}.footer-main{gap:35px}}
 @media(max-width:680px){.container{width:min(100% - 36px,1140px)}.navbar{height:68px}.menu-toggle{display:grid;place-items:center;width:44px;height:44px;cursor:pointer}.nav-links{display:none;position:absolute;top:68px;left:0;right:0;padding:20px 22px 24px;flex-direction:column;align-items:stretch;gap:18px;background:#0b100d;border-bottom:1px solid var(--line)}.nav-links.open{display:flex}.nav-links .button{width:100%}.hero-section{padding-top:65px}.hero-grid{grid-template-columns:1fr;gap:10px}.hero-copy h1,.page-hero h1{font-size:clamp(39px,11vw,55px);letter-spacing:-2px}.hero-description{font-size:14px}.hero-actions{align-items:flex-start;flex-direction:column;gap:18px}.hero-visual{height:360px}.orbit-a{width:320px;height:240px}.orbit-b{width:270px;height:330px}.chip-top{right:-2px;top:25px}.chip-bottom{left:-2px;bottom:22px}.hero-bottom{margin-top:18px;font-size:8px;gap:10px}.section{padding:72px 0}.section-heading{margin-bottom:35px}.section-heading h2,.purpose-grid h2,.story-copy h2{font-size:34px}.feature-grid,.values-grid{grid-template-columns:1fr}.feature-card{min-height:205px}.purpose-grid,.story-grid,.contact-grid{grid-template-columns:1fr;gap:28px}.purpose-grid{gap:5px}.download-section{padding:10px 0 70px}.download-panel{padding:28px 22px}.download-actions{width:100%;flex-direction:column}.store-button{width:100%}.footer-main{grid-template-columns:1fr 1fr;gap:30px 20px;padding:45px 0 35px}.footer-brand{grid-column:1/-1}.footer-bottom{gap:12px;flex-direction:column}.page-hero{padding:65px 0 55px}.story-visual{min-height:250px}.contact-info h2{font-size:32px}.contact-form{padding:23px 18px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* ChallengeHub white-and-green visual refresh */
+:root{color:#173323;background:#fff;--bg:#fff;--panel:#f4faf5;--green:#168447;--green2:#38a96b;--muted:#5c7163;--line:#dcebe0;--heading:'Space Grotesk',sans-serif}
+body{background:#fff;color:#173323}
+.site-header{background:rgba(255,255,255,.94);border-bottom:1px solid #e2eee5}
+.nav-links{color:#405b49}.nav-links>a:not(.button):hover,.nav-links>a.active{color:#168447}
+.menu-toggle{color:#173323}
+.brand-mark{color:#fff;background:#168447;box-shadow:0 5px 18px #16844728}
+.button{background:#168447;border-color:#168447;color:#fff}
+.button:hover{box-shadow:0 10px 25px #16844725}
+.hero-section{background:linear-gradient(180deg,#f5fbf6 0%,#fff 100%)}
+.glow-one{background:#8bd9a6;opacity:.25}.glow-two{background:#b9e9c7;opacity:.3}
+.hero-copy h1,.page-hero h1{color:#173323}
+.hero-description,.page-hero p,.section-heading p,.purpose-copy p,.story-copy p,.contact-info>p{color:#5c7163}
+.text-link{color:#245b39}
+.hero-proof{color:#4e6656}
+.visual-orbit{border-color:#16844725}
+.learning-card{background:linear-gradient(145deg,#fff,#f0f8f2);border-color:#b8ddc3;box-shadow:0 25px 70px #1b553018}
+.card-topline,.card-footer{color:#647a69}
+.learning-card h2{color:#173323}.learning-card p{color:#617567}
+.progress-track{background:#dcebe0}
+.float-chip{background:#fff;border-color:#c8e5d0;color:#244a32;box-shadow:0 12px 30px #1b553014}
+.hero-bottom{color:#66806e}
+.features-section,.values-section{background:#f6faf7;border-color:#e4eee6}
+.feature-card,.value-card{background:#fff;border-color:#deebe1;box-shadow:0 8px 24px #184b2810}
+.feature-card h3,.value-card h3{color:#173323}
+.feature-card p,.value-card p{color:#5c7163}
+.feature-number{color:#8aa493}
+.feature-icon{background:#eaf6ed;border-color:#cce8d3;color:#168447}
+.download-panel{background:radial-gradient(circle at 85% 20%,#16844714,transparent 38%),#f1f9f3;border-color:#b9dfc3}
+.download-panel h2{color:#173323}.download-panel p{color:#5c7163}
+.store-button{background:#fff;border-color:#c8ddce;color:#173323}
+.store-button small{color:#63786a}
+.site-footer{background:#f5faf6;border-color:#dcebe0}
+.footer-brand p,.footer-column p{color:#5c7163}
+.footer-column{color:#3e5b47}.footer-column h3{color:#173323}
+.social-links a{color:#41634d;border-color:#d7e8dc}
+.footer-bottom{border-color:#dcebe0;color:#6c8172}
+.page-hero{background:linear-gradient(135deg,#f3faf5,#fff 72%);border-color:#e0ece3}
+.story-visual{background:radial-gradient(circle,#d8f1df,transparent 65%),#f2f9f4;border-color:#cde5d3}
+.story-emblem{border-color:#8ccba0;color:#168447;box-shadow:0 0 60px #16844718}
+.contact-method>span{background:#eaf6ed;color:#168447}
+.contact-form{background:#f7fbf8;border-color:#dcebe0}
+.contact-form h3{color:#173323}.contact-form label{color:#294b35}
+.contact-form input,.contact-form textarea{background:#fff;border-color:#cbded0;color:#173323}
+.contact-form input:focus,.contact-form textarea:focus{border-color:#168447}
+@media(max-width:680px){.nav-links{background:#fff;border-color:#dcebe0}}
+/* Animated editorial photography shared across all three pages */
+.animated-photo{position:relative;overflow:hidden;border:1px solid #cce5d2;border-radius:22px;background:#eaf5ed;box-shadow:0 22px 55px #1a573018}
+.animated-photo img{display:block;width:100%;height:100%;object-fit:cover}
+.animated-photo:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,#0d2b18a8);pointer-events:none}
+.photo-caption{position:absolute;z-index:1;left:18px;bottom:16px;color:#fff;font-size:11px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase}
+.home-photo{position:absolute;z-index:0;width:185px;height:225px;right:-5px;top:22px;transform:rotate(5deg)}
+.home-photo img{object-position:center}
+.home-photo+.learning-card{z-index:1;margin-left:-30px}
+.about-photo{width:100%;height:320px}
+.contact-photo{width:min(270px,100%);height:155px;margin-top:28px}
+@media(max-width:680px){.home-photo{width:135px;height:165px;right:0;top:28px}.home-photo+.learning-card{margin-left:-25px}.about-photo{height:245px}.contact-photo{height:170px}}
