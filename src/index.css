@@ -52,14 +52,13 @@ body{background:#fff;color:#173323}
 .contact-form input,.contact-form textarea{background:#fff;border-color:#cbded0;color:#173323}
 .contact-form input:focus,.contact-form textarea:focus{border-color:#168447}
 @media(max-width:680px){.nav-links{background:#fff;border-color:#dcebe0}}
-/* Animated editorial photography shared across all three pages */
-.animated-photo{position:relative;overflow:hidden;border:1px solid #cce5d2;border-radius:22px;background:#eaf5ed;box-shadow:0 22px 55px #1a573018}
-.animated-photo img{display:block;width:100%;height:100%;object-fit:cover}
-.animated-photo:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,#0d2b18a8);pointer-events:none}
-.photo-caption{position:absolute;z-index:1;left:18px;bottom:16px;color:#fff;font-size:11px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase}
-.home-photo{position:absolute;z-index:0;width:185px;height:225px;right:-5px;top:22px;transform:rotate(5deg)}
-.home-photo img{object-position:center}
-.home-photo+.learning-card{z-index:1;margin-left:-30px}
-.about-photo{width:100%;height:320px}
-.contact-photo{width:min(270px,100%);height:155px;margin-top:28px}
-@media(max-width:680px){.home-photo{width:135px;height:165px;right:0;top:28px}.home-photo+.learning-card{margin-left:-25px}.about-photo{height:245px}.contact-photo{height:170px}}
+
+/* Full-width responsive video sections on Home, About and Contact */
+.video-banner{position:relative;width:100%;height:clamp(250px,38vw,520px);overflow:hidden;background:#eaf5ed;border-block:1px solid #cce5d2}
+.video-banner video{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.video-banner:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(8,35,18,.58));pointer-events:none}
+.video-banner-caption{position:absolute;z-index:1;left:max(24px,calc((100% - 1140px)/2));right:24px;bottom:clamp(22px,4vw,42px);margin:0;color:#fff;font:700 clamp(21px,3.2vw,36px)/1.15 var(--heading);text-shadow:0 2px 18px #0008}
+.home-video{height:clamp(260px,42vw,540px);margin-top:18px}
+.about-video{width:100%;height:100%;min-height:320px;border-radius:16px}
+.contact-video{width:100%;height:clamp(220px,28vw,340px);margin-top:32px;border-radius:16px}
+@media(max-width:680px){.video-banner{height:260px}.home-video{height:260px;margin-top:8px}.about-video{min-height:240px}.contact-video{height:220px}}
