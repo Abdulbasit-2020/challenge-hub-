@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 import Home from "./pages/Home.jsx";
@@ -7,7 +7,7 @@ import Contact from "./pages/Contact.jsx";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="app-shell">
         <Navbar />
         <main>
@@ -20,6 +20,6 @@ export default function App() {
         </main>
         <Footer />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
