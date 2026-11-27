@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, BookOpen, ChartNoAxesCombined, CheckCircle2, Medal, Sparkles, Target, Trophy } from "lucide-react";
 import { Link } from "react-router-dom";
 import DownloadButtons from "../components/DownloadButtons.jsx";
-import AnimatedPhoto from "../components/AnimatedPhoto.jsx";
+import VideoBanner from "../components/VideoBanner.jsx";
 
 const features = [
   { icon: BookOpen, title: "Practice with purpose", text: "Build understanding and confidence through focused practice and learning activities." },
@@ -26,7 +26,7 @@ export default function Home() {
           </motion.div>
           <motion.div className="hero-visual" initial={{ opacity: 0, scale: .92 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: .7, delay: .15 }}>
             <div className="visual-orbit orbit-a" /><div className="visual-orbit orbit-b" />
-            <AnimatedPhoto className="home-photo" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=700&q=85" alt="Students learning together" caption="Learn together" />
+
             <div className="learning-card">
               <div className="card-topline"><span className="live-dot" /> YOUR LEARNING JOURNEY</div>
               <div className="visual-symbol"><Target size={43} /></div>
@@ -42,6 +42,7 @@ export default function Home() {
         </div>
         <div className="container hero-bottom"><span>LEARN WITH PURPOSE</span><span className="hero-line" /><span>GROW WITH CONFIDENCE</span></div>
       </section>
+      <VideoBanner className="home-video" src="https://videos.pexels.com/video-files/5676169/5676169-hd_1080_1920_25fps.mp4" poster="https://images.pexels.com/videos/5676169/free-video-5676169.jpg?auto=compress&cs=tinysrgb&w=1600" title="Learning is better together" />
       <section className="section features-section"><div className="container"><div className="section-heading"><div className="eyebrow">THE CHALLENGEHUB EXPERIENCE</div><h2>Learning should move you <span>forward.</span></h2><p>More than just studying: build a habit of learning, testing yourself and improving every day.</p></div><div className="feature-grid">{features.map(({ icon: Icon, title, text }, index) => <motion.article className="feature-card" key={title} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * .08 }}><div className="feature-icon"><Icon size={24} /></div><span className="feature-number">0{index + 1}</span><h3>{title}</h3><p>{text}</p><span className="feature-arrow"><ArrowRight size={18} /></span></motion.article>)}</div></div></section>
       <section className="section purpose-section"><div className="container purpose-grid"><div><div className="eyebrow">BUILT AROUND YOUR POTENTIAL</div><h2>Your next level starts with <span>one challenge.</span></h2></div><div className="purpose-copy"><p>Whether you are strengthening what you know or discovering what you can do, ChallengeHub gives your learning journey a clear direction.</p><Link className="text-link" to="/about">Learn about our mission <ArrowRight size={17} /></Link></div></div></section>
       <section className="download-section" id="download"><div className="container download-panel"><div><div className="eyebrow">YOUR JOURNEY STARTS HERE</div><h2>Ready to learn, compete and grow?</h2><p>Get the ChallengeHub app and take your next step.</p></div><DownloadButtons /></div></section>
