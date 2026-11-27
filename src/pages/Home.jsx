@@ -12,17 +12,17 @@ const features = [
 ];
 
 export default function Home() {
-  const welcomeWords = ["Welcome", "to", "ChallengeHub"];
-  const [visibleWords, setVisibleWords] = useState([]);
+  const welcomeText = "Welcome to ChallengeHub";
+  const [typedText, setTypedText] = useState("");
 
   useEffect(() => {
-    setVisibleWords([]);
+    setTypedText("");
     let index = 0;
     const timer = window.setInterval(() => {
       index += 1;
-      setVisibleWords(welcomeWords.slice(0, index));
-      if (index >= welcomeWords.length) window.clearInterval(timer);
-    }, 650);
+      setTypedText(welcomeText.slice(0, index));
+      if (index >= welcomeText.length) window.clearInterval(timer);
+    }, 95);
     return () => window.clearInterval(timer);
   }, []);
 
@@ -32,7 +32,7 @@ export default function Home() {
         <div className="welcome-image-overlay" />
         <div className="welcome-image-content">
           <div className="eyebrow"><Sparkles size={15} /> A smarter way to learn</div>
-          <h1 aria-live="polite">{visibleWords.join(" ")}<span className="typing-cursor" aria-hidden="true">|</span></h1>
+          <h1 aria-label={welcomeText} aria-live="polite">{typedText}<span className="typing-cursor" aria-hidden="true">|</span></h1>
           <p>ChallengeHub is a learning and competition platform designed to help you practise, test your knowledge, build confidence and track your progress. Learn at your pace, take on meaningful challenges and keep growing.</p>
           <div className="hero-actions">
             <a className="button" href="#download">Get the ChallengeHub App <ArrowRight size={18} /></a>
