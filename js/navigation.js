@@ -1,1 +1,0 @@
-const navLinks=document.querySelectorAll('.nav a');navLinks.forEach(a=>a.addEventListener('click',()=>document.querySelector('.nav')?.classList.remove('open'));

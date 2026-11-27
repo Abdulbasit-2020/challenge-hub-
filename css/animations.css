@@ -1,2 +1,0 @@
-/* Respect user motion settings; reveal animation can be added progressively. */
-@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}a,button{transition:transform .2s ease,opacity .2s ease}a:hover{transform:translateY(-1px)}}
