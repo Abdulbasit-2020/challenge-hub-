@@ -59,8 +59,10 @@ jobs:
           EOF
       - name: Create source ZIP
         run: |
-          zip -r ChallengeHub-Frontend-GitHub-Pages.zip . \
-            -x ".git/*" "node_modules/*" "dist/*" ".github/workflows/package-source.yml"
+          mkdir -p /tmp/challengehub-package
+          tar --exclude="./.git" --exclude="./node_modules" --exclude="./dist" --exclude="./ChallengeHub-Frontend-GitHub-Pages.zip" -cf - . | tar -xf - -C /tmp/challengehub-package
+          cd /tmp/challengehub-package
+          zip -r "$GITHUB_WORKSPACE/ChallengeHub-Frontend-GitHub-Pages.zip" .
       - name: Upload source ZIP
         uses: actions/upload-artifact@v4
         with:
