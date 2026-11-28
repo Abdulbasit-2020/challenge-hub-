@@ -1,0 +1,69 @@
+name: Package ChallengeHub for Community GitHub
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/package-source.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout latest website
+        uses: actions/checkout@v4
+      - name: Configure Vite for challengehub-team/Frontend
+        run: |
+          sed -i 's|base: "/challenge-hub-/"|base: "/Frontend/"|' vite.config.js
+      - name: Add transfer instructions
+        run: |
+          cat > README-COMMUNITY-DEPLOYMENT.md <<'EOF'
+          # ChallengeHub — Community GitHub deployment
+
+          This is the React + Vite source package for the ChallengeHub public website.
+
+          ## Publish on GitHub Pages
+
+          1. Create a public repository named `Frontend` under the `challengehub-team` organization.
+          2. Upload the contents of this package to the repository root (do not upload the ZIP as a single file).
+          3. Commit the files to the `main` branch.
+          4. Open Settings → Pages and choose **GitHub Actions** as the Build and deployment source.
+          5. Open Actions and wait for **Deploy ChallengeHub to GitHub Pages** to finish successfully.
+          6. The project site URL will be https://challengehub-team.github.io/Frontend/.
+
+          The Vite base path in this package is already configured as `/Frontend/`.
+          The included workflow builds the site and deploys the `dist` directory.
+
+          ## Local development
+
+          Requires Node.js 20 or newer.
+
+          ```bash
+          npm install
+          npm run dev
+          ```
+
+          To create a production build locally:
+
+          ```bash
+          npm run build
+          npm run preview
+          ```
+
+          ## Before launch
+
+          - Update the official email and social links in `src/config.js`.
+          - Replace Google Play and App Store placeholder links when the app listings are ready.
+          - Confirm that the external Pexels MP4 video URLs load on your target networks.
+          EOF
+      - name: Create source ZIP
+        run: |
+          zip -r ChallengeHub-Frontend-GitHub-Pages.zip . \
+            -x ".git/*" "node_modules/*" "dist/*" ".github/workflows/package-source.yml"
+      - name: Upload source ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: ChallengeHub-Frontend-GitHub-Pages
+          path: ChallengeHub-Frontend-GitHub-Pages.zip
+          retention-days: 7
