@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -23,7 +23,7 @@ export default function Navbar() {
     <header className="site-header">
       <nav className="navbar container" aria-label="Main navigation">
         <Link className="brand" to="/" onClick={close}>
-          <span className="brand-mark"><Zap size={21} fill="currentColor" /></span>
+          <img className="brand-logo" src={`${import.meta.env.BASE_URL}challengehub-logo.jpg`} alt="ChallengeHub logo" />
           <span>Challenge<span className="brand-accent">Hub</span></span>
         </Link>
         <button className="menu-toggle" type="button" onClick={() => setOpen(!open)} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open}>

@@ -116,3 +116,8 @@ body{background:#fff;color:#173323}
   .welcome-image-content h1{font-size:clamp(42px,12vw,64px);letter-spacing:-2px}
 }
 @media(prefers-reduced-motion:reduce){.typing-cursor{animation:none}}
+
+
+/* Official ChallengeHub logo in shared branding */
+.brand-logo{display:block;width:42px;height:42px;flex:0 0 42px;object-fit:contain;border-radius:50%;background:#fff;border:1px solid #dcebe0}
+.footer-brand .brand-logo{width:46px;height:46px;flex-basis:46px}

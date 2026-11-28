@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Linkedin, Youtube, MessageCircle, Zap } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Youtube, MessageCircle } from "lucide-react";
 import { SOCIAL_LINKS } from "../config.js";
 
 const socialItems = [
@@ -19,7 +19,7 @@ export default function Footer() {
       <div className="container footer-main">
         <div className="footer-brand">
           <Link className="brand" to="/">
-            <span className="brand-mark"><Zap size={21} fill="currentColor" /></span>
+            <img className="brand-logo" src={`${import.meta.env.BASE_URL}challengehub-logo.jpg`} alt="ChallengeHub logo" />
             <span>Challenge<span className="brand-accent">Hub</span></span>
           </Link>
           <p>Learn with purpose. Challenge your limits. Grow beyond them.</p>
